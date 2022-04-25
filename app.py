@@ -21,7 +21,6 @@ app.config['MAX_CONTENT_PATH'] = 50000000
 @app.route('/home')
 def home():
     filename = request.args.get('filename', None)
-    print(filename)
     return render_template('index.html', is_file=filename is not None, filename=filename)
 
 
@@ -32,6 +31,7 @@ def detect():
     file_path = f'{app.config["UPLOAD_FOLDER"]}/{filename}'
     f.save(file_path)
     filename = od_utils.process(file_path, model)
+    print(filename)
     return redirect(url_for('home', filename=filename))
 
 
