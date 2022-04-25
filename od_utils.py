@@ -55,7 +55,7 @@ def process(file_path, model):
     filename_out = f'{filename_parts[0]}_out.{filename_parts[1]}'
 
     fourcc = cv2.VideoWriter_fourcc(*"XVID")
-    video_writer = cv2.VideoWriter(filename_out, fourcc, 30, (width, height))
+    video_writer = cv2.VideoWriter(f'static/{filename_out}', fourcc, 30, (width, height))
 
     while True:
         ret, frame = cap.read()
