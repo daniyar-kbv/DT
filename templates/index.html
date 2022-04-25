@@ -26,7 +26,7 @@
                 <h1 class="fst-italic lh-1 mb-4">Drowsiness Detection Demo</h1>
                 <p class="mb-5">We're working hard to finish the development of this site. Upload video to test our
                     model!</p>
-                <form action="http://127.0.0.1:5000/detect" method="POST" enctype="multipart/form-data">
+                <form action="http://0.0.0.0:5000/detect" method="POST" enctype="multipart/form-data">
                     <input class="form-control form-control-lg col" type="file" name="file" />
                     <input class="btn btn-primary btn-lg w-100 mt-5" type="submit" value="Upload"/>
                 </form>
@@ -38,7 +38,7 @@
         <video class="w-75 h-75" controls style="z-index: 3">
             <source src="{{ url_for('static', filename=filename) }}" type="video/mp4">
         </video>
-        <form action="http://127.0.0.1:5000/home" method="GET">
+        <form action="http://0.0.0.0:5000/home" method="GET">
             <input class="btn btn-primary btn-lg" type="submit" value="Restart"/>
         </form>
     </div>
