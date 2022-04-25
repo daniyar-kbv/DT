@@ -32,8 +32,6 @@ def detect():
     file_path = f'{app.config["UPLOAD_FOLDER"]}/{filename}'
     f.save(file_path)
     filename = od_utils.process(file_path, model)
-    # import time
-    # time.sleep(10)
     return redirect(url_for('home', filename=filename))
 
 
