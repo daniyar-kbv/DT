@@ -8,8 +8,8 @@ model = torch.hub.load('ultralytics/yolov5', 'custom', path='model/best.pt', for
 model.eval()
 
 os.environ['FLASK_APP'] = 'dt'
-# os.environ['FLASK_ENV'] = 'prod'
-os.environ['FLASK_ENV'] = 'development'
+os.environ['FLASK_ENV'] = 'prod'
+# os.environ['FLASK_ENV'] = 'development'
 root = os.popen('pwd').read().splitlines()[0]
 
 app = Flask(__name__)
