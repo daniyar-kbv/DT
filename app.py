@@ -4,7 +4,7 @@ import os
 import torch
 import od_utils
 
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/best.pt', force_reload=True)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='model/best.pt', force_reload=True)
 model.eval()
 
 os.environ['FLASK_APP'] = 'dt'
