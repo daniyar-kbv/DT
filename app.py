@@ -30,7 +30,7 @@ def detect():
     filename = secure_filename(f.filename)
     file_path = f'{app.config["UPLOAD_FOLDER"]}/{filename}'
     f.save(file_path)
-    filename = od_utils.process(file_path, model)
+    filename = od_utils.process(file_path, model).split('/')[-1]
     print(filename)
     print(url_for('home', filename=filename))
     return redirect(url_for('home', filename=filename))
