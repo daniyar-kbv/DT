@@ -8,7 +8,8 @@ model = torch.hub.load('ultralytics/yolov5', 'custom', path='model/best.pt', for
 model.eval()
 
 os.environ['FLASK_APP'] = 'dt'
-os.environ['FLASK_ENV'] = 'prod'
+# os.environ['FLASK_ENV'] = 'prod'
+os.environ['FLASK_ENV'] = 'development'
 root = os.popen('pwd').read().splitlines()[0]
 
 app = Flask(__name__)
@@ -30,8 +31,10 @@ def detect():
     filename = secure_filename(f.filename)
     file_path = f'{app.config["UPLOAD_FOLDER"]}/{filename}'
     f.save(file_path)
-    filename_out = od_utils.process(file_path, model)
-    return redirect(url_for('home', filename=filename_out))
+    filename = od_utils.process(file_path, model)
+    # import time
+    # time.sleep(10)
+    return redirect(url_for('home', filename=filename))
 
 
 if __name__ == "__main__":
