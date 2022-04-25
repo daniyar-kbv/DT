@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, url_for, redirect
 from werkzeug.utils import secure_filename
 import os
 import torch
-import utils
+import od_utils
 
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', force_reload=True)
 model.eval()
