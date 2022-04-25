@@ -1,0 +1,6 @@
+*.idea/
+*__pycache__/
+yolov5/
+requirements2.txt
+inference.ipynb
+dt2env/

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Drowsiness Detection Demo</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"/>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+</head>
+<body>
+<video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="{{ url_for('static', filename='bg.mp4') }}" type="video/mp4"/>
+</video>
+<div class="row h-100 w-100">
+    <div class="masthead col-6 h-100 w-50">
+        <div class="masthead-content text-white">
+            <div class="container-fluid px-4 px-lg-0">
+                <h1 class="fst-italic lh-1 mb-4">Drowsiness Detection Demo</h1>
+                <p class="mb-5">We're working hard to finish the development of this site. Upload video to test our
+                    model!</p>
+                <form action="http://127.0.0.1:5000/detect" method="POST" enctype="multipart/form-data">
+                    <input class="form-control form-control-lg col" type="file" name="file" />
+                    <input class="btn btn-primary btn-lg w-100 mt-5" id="submit" type="submit" value="Upload" disabled/>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% if is_file +%}
+    <div class="col-6 h-100 w-50 d-flex justify-content-center align-items-center" style="z-index: 2">
+        <video class="w-75 h-75" controls style="z-index: 3">
+            <source src="{{ url_for('static', filename=filename) }}" type="video/mp4">
+        </video>
+        <form action="http://127.0.0.1:5000/home" method="GET">
+            <input class="btn btn-primary btn-lg" type="submit" value="Restart"/>
+        </form>
+    </div>
+    {% endif %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

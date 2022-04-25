@@ -1,0 +1,13 @@
+version: '3'
+services:
+  backend:
+    build: .
+    command: sh -c "python app.py"
+    volumes:
+      - .:/DT2
+      - static:/DT2/static
+    ports:
+      - "5000:5000"
+
+volumes:
+  static:
