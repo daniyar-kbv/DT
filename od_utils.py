@@ -73,7 +73,10 @@ def process(filename, model):
             else:
                 closed_count = 0
 
-            if is_yawn and closed_count <= 30:
+            if is_yawn:
+                warning = True
+
+            if warning and closed_count <= 30:
                 frame = cv2.putText(img=frame,
                                     text=f'WARNING',
                                     org=(20, 200),
