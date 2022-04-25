@@ -64,6 +64,7 @@ def process(file_path, model):
         if ret:
             frame = frame[:, :, ::-1]
             frame = detect(frame, model)
+            frame = frame[:, :, ::-1]
             video_writer.write(frame)
         else:
             break
