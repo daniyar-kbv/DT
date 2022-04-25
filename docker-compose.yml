@@ -2,12 +2,14 @@ version: '3'
 services:
   backend:
     build: .
-    command: sh -c "python app.py"
+    command: sh -c "flask run --host=0.0.0.0"
     volumes:
       - .:/DT2
       - static:/DT2/static
     ports:
       - "5000:5000"
+    env_file:
+    - ./.env
 
 volumes:
   static:
