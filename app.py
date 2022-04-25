@@ -32,6 +32,7 @@ def detect():
     f.save(file_path)
     filename = od_utils.process(file_path, model)
     print(filename)
+    print(url_for('home', filename=filename))
     return redirect(url_for('home', filename=filename))
 
 
