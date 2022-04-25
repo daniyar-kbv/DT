@@ -4,7 +4,7 @@ import os
 import torch
 import od_utils
 
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', force_reload=True)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/best.pt', force_reload=True)
 model.eval()
 
 os.environ['FLASK_APP'] = 'dt'
@@ -30,7 +30,7 @@ def detect():
     filename = secure_filename(f.filename)
     file_path = f'{app.config["UPLOAD_FOLDER"]}/{filename}'
     f.save(file_path)
-    utils.process(file_path, model)
+    od_utils.process(file_path, model)
     return redirect(url_for('home', filename=filename))
 
 
