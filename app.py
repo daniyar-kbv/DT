@@ -4,11 +4,11 @@ import os
 import torch
 import od_utils
 
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='model/best.pt', force_reload=True)
-model.eval()
+# model = torch.hub.load('ultralytics/yolov5', 'custom', path='model/best.pt', force_reload=True)
+# model.eval()
 
 os.environ['FLASK_APP'] = 'dt'
-os.environ['FLASK_ENV'] = 'development'
+os.environ['FLASK_ENV'] = 'prod'
 root = os.popen('pwd').read().splitlines()[0]
 
 app = Flask(__name__)
