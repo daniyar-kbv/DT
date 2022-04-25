@@ -16,6 +16,8 @@ def draw_boinding_box(frame, row, c=0.002):
     classname = row['name'].replace('rotation', '')
     confidence = str(round(row['confidence'] * 100, 2))
 
+    frame = np.array(frame)
+
     frame = cv2.rectangle(img=frame,
                           pt1=(xmin, ymin),
                           pt2=(xmax, ymax),
