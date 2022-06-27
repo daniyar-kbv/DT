@@ -4,3 +4,4 @@ yolov5/
 requirements2.txt
 inference.ipynb
 dt2env/
+.DS_Store
